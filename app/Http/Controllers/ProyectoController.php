@@ -32,7 +32,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         Proyecto::create($request->all());
-        return redirect()->route('index');
+        return redirect()->route('project.index');
     }
 
 
@@ -40,7 +40,7 @@ class ProyectoController extends Controller
     {
         $proyecto = proyecto::find($id);
         $proyecto->delete();
-        return redirect()->route('index');
+        return redirect()->route('project.index');
     }
 
     public function update(Request $request, $id)
@@ -54,7 +54,7 @@ class ProyectoController extends Controller
         if ( !$proyecto->save() ) {
             return 'Falló el intento de actualizar el proyecto';
         };
-        return redirect()->route('index');
+        return redirect()->route('project.index');
     }
 
     public function report()
