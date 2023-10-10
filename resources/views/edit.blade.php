@@ -8,7 +8,7 @@
 <body>
 <div class="col-12">
     <div class="card-body">
-        <form method="POST" action="{{Route('update', $proyecto)}}">
+        <form method="POST" action="{{Route('project.update', $proyecto)}}">
             @csrf @method('PATCH')
             <div class="row">
                 <label for="NombreProyecto">Nombre del proyecto</label>

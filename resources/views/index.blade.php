@@ -3,12 +3,12 @@
     <div class="container-fluid text-center">
         <div class="row p-5" style="float: left !important;">
             <div class="col-6">
-                <a name="" class="btn btn-primary" href="{{Route('create')}}" role="button">NUEVO</a>
+                <a name="" class="btn btn-primary" href="{{route('project.create')}}" role="button">NUEVO</a>
             </div>
         </div>
         <div class="row p-5" style="float: right !important;">
             <div class="col">
-                <a name="" class="btn btn-warning" href="{{Route('report')}}" role="button">PDF</a>
+                <a name="" class="btn btn-warning" href="{{route('project.report')}}" role="button">PDF</a>
             </div>
         </div>
         <div class="col">
@@ -32,8 +32,8 @@
                         <td>{{$proyecto->MontoPatrocinado}}</td>
                         <td>{{$proyecto->MontoFondosPropios}}</td>
                         <td>
-                            <a name="" class="btn btn-primary" href="{{Route('edit', $proyecto->id)}}" role="button">Editar</a>
-                            <a name="" class="btn btn-warning" href="{{Route('delete', $proyecto->id)}}" role="button">Eliminar</a>
+                            <a name="" class="btn btn-primary" href="{{route('project.edit', $proyecto->id)}}" role="button">Editar</a>
+                            <a name="" class="btn btn-warning" href="{{route('project.delete', $proyecto->id)}}" role="button">Eliminar</a>
                         </td>
                     </tr>
                     @endforeach

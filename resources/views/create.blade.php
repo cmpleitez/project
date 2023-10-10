@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-<form method="POST" action="{{Route('store')}}">
+<form method="POST" action="{{Route('project.store')}}">
     @csrf
     <div class="container-fluid p-5">
         <div class="row">

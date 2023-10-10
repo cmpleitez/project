@@ -17,12 +17,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [ProyectoController::class,'index'])->name('index');
-Route::get('create', [ProyectoController::class,'create'])->name('create');
-Route::get('edit/{id}', [ProyectoController::class,'edit'])->name('edit');
-Route::post('store', [ProyectoController::class,'store'])->name('store');
-Route::patch('update/{id}', [ProyectoController::class,'update'])->name('update');
-Route::get('delete/{id}', [ProyectoController::class,'delete'])->name('delete');
-Route::get('report', [ProyectoController::class,'report'])->name('report');
+
+//pendiente el middleware
+Route::controller(proyectoController::class)->prefix('project')->group(function(){
+    Route::get('/', 'index')->name('project.index');
+    Route::get('create', 'create')->name('project.create');
+    Route::get('edit/{id}', 'edit')->name('project.edit');
+    Route::post('store', 'store')->name('project.store');
+    Route::patch('update/{id}', 'update')->name('project.update');
+    Route::get('delete/{id}', 'delete')->name('project.delete');
+    Route::get('report', 'report')->name('project.report');
+});
 
 require __DIR__.'/auth.php';
