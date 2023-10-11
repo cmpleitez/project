@@ -40,7 +40,7 @@ class ProyectoController extends Controller
     {
         $proyecto = proyecto::find($id);
         $proyecto->delete();
-        return redirect()->route('project.index');
+        return to_route('project.index');
     }
 
     public function update(Request $request, $id)
