@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
 
-                    <a href="{{route('project.create')}}">create</a>
+                    <a href="{{route('project.index')}}">create</a>
 
                 </div>
             </div>
