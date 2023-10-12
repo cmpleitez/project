@@ -1,0 +1,23 @@
+phases:
+  install:
+    runtime-versions:
+      php: 8.1
+      composer: 2.6.5
+    commands:
+      - docker-php-ext-install pdo php_pdo_sqlsrv_81_ts
+      - composer install --no-dev --optimize-autoloader
+      - npm install -g npm
+  pre_build:
+    commands:
+      - npm run build
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build -t project .
+      - php artisan migrate:refresh --seed
+  post_build:
+    commands:
+      - echo Build completed on `date`
+  start:
+    commands:
+      - echo Starting the application...
