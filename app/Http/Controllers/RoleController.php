@@ -12,7 +12,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $data['roles'] = Role::All();
+        return view('roles.index', $data);
     }
 
     /**
@@ -45,7 +46,7 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('roles.edit', ['role' => Role::findOrFail($id)]);
     }
 
     /**

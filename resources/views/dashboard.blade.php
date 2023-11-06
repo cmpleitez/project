@@ -11,13 +11,8 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
 
-                    <a href="{{route('project.index')}}">Proyectos</a> |
-                    <a href="{{route('permission.create')}}">Crear permiso</a> |
-                    <a href="{{route('role.create')}}">Crear role</a> |
-
-                    <a href="{{route('#')}}">Sincronizar permisos</a> |
-                    <a href="{{route('#')}}">Sincronizar roles</a> |
-
+                    <a href="{{route('project.index')}}">PROYECTOS</a> |
+                    <a href="{{route('role.index')}}">ROLES</a>
 
                 </div>
             </div>

@@ -9,9 +9,6 @@ use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         \App\Models\User::factory(10)->create();
@@ -30,16 +27,8 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'unpublish articles']);
 
         // create roles and assign created permissions
-
-        // this can be done as separate statements
-        $role = Role::create(['name' => 'writer']);
-        $role->givePermissionTo('edit articles');
-
-        // or may be done by chaining
-        $role = Role::create(['name' => 'moderator'])
-            ->givePermissionTo(['publish articles', 'unpublish articles']);
-
-        $role = Role::create(['name' => 'super-admin']);
-        $role->givePermissionTo(Permission::all());
+        $role = Role::create(['name' => 'writer'])->givePermissionTo(['edit articles']);
+        $role = Role::create(['name' => 'moderator'])->givePermissionTo(['publish articles', 'unpublish articles']);
+        $role = Role::create(['name' => 'super-admin'])->givePermissionTo(Permission::all());
     }
 }

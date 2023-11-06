@@ -1,7 +1,5 @@
-
 @extends('app')
 @section('content')
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +10,13 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Role index</p>
+    <a href="{{route('role.create')}}">CREAR</a>
+    
+    @foreach ($roles as $role)
+        <p>{{$role->name}}</p>
+        <a href="{{route('role.edit', $role->id)}}">EDITAR</a>
+    @endforeach
 </body>
 </html>
-
 
 @endsection
