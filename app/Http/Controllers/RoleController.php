@@ -7,61 +7,42 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $data['roles'] = Role::All();
         return view('roles.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $role = Role::create(['name' => 'writer']);
         echo '<script type="text/javascript">alert("Proceso finalizado");</script>';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        return view('roles.edit', ['role' => Role::findOrFail($id)]);
+        //Role::permissions()->sync($request->permissions);
+        return view('roles.edit', ['role' => Role::findOrFail($id), 'permissions' => Role::findOrFail($id)->permissions()->select('id','name')->get()]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
-        //
+        return "hipotéticamente ha eliminado el rol número ".$id;
     }
 }

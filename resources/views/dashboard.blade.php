@@ -11,8 +11,13 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
 
-                    <a href="{{route('project.index')}}">PROYECTOS</a> |
-                    <a href="{{route('role.index')}}">ROLES</a>
+                    @can('access')
+                        <div @class(['row', 'font-bold' => false])>Bien venido</div>
+                    @endcan
+
+                    @can('list')
+                        <div @class(['row', 'font-bold' => false])><a href="{{route('role.index')}}">ROLES</a></div>
+                    @endcan
 
                 </div>
             </div>

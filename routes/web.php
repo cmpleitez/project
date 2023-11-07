@@ -47,8 +47,10 @@ Route::controller(roleController::class)->prefix('role')->group(function(){
     Route::get('edit/{id}', 'edit')->name('role.edit');
     Route::post('store', 'store')->name('role.store');
     Route::patch('update/{id}', 'update')->name('role.update');
-    Route::get('delete/{id}', 'delete')->name('role.delete');
     Route::get('report', 'report')->name('role.report');
+    Route::get('publish/{id}', 'publish')->name('role.publish');
+    Route::get('unpublish/{id}', 'unpublish')->name('role.unpublish');
+    Route::get('destroy/{id}', 'destroy')->name('role.delete');
 });
 
 

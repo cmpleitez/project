@@ -10,12 +10,34 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{{route('role.create')}}">CREAR</a>
+    @can('crear')
+        <a href="{{route('role.create')}}">CREAR</a>    
+    @endcan
     
     @foreach ($roles as $role)
-        <p>{{$role->name}}</p>
-        <a href="{{route('role.edit', $role->id)}}">EDITAR</a>
+        <div class="row">
+
+            <div class="col-6">
+                @can('edit')
+                    {{$role->name}}
+                @else
+                    {{$role->name}} Solo lectura
+                @endcan
+            </div>
+
+            <div class="col-6">
+                @can('edit')
+                    <a href="{{route('role.edit', $role->id)}}">EDITAR</a>
+                @endcan
+
+                @can('delete')
+                    <a href="{{route('role.delete', $role->id)}}">ELIMINAR</a>
+                @endcan
+            </div>
+
+        </div>
     @endforeach
+
 </body>
 </html>
 
